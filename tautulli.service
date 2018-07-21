@@ -2,9 +2,8 @@
 Description=Tautulli - Stats for Plex Media Server usage
 
 [Service]
-ExecStart=/usr/share/tautulli/tautulli.py --quiet --nolaunch --config /etc/tautulli/config.ini --datadir /var/lib/tautulli
+ExecStart=/usr/share/tautulli/Tautulli.py --quiet --nolaunch --config /etc/tautulli/config.ini --datadir /var/lib/tautulli
 GuessMainPID=no
-Type=forking
 User=tautulli
 Group=tautulli
 

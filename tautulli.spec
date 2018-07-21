@@ -20,6 +20,7 @@ BuildRequires:  systemd
 BuildRequires:  tar
 
 Requires:       python2
+Requires:       python2-pycryptodomex
 Requires:       firewalld-filesystem
 Requires(post): firewalld-filesystem
 
@@ -49,7 +50,7 @@ find %{buildroot} -name "*.py" -exec sed -i \
 
 find %{buildroot} \( -name "*.js" -o -name "*.css" \) -exec chmod 644 {} \;
 
-rm -fr %{buildroot}%{_datadir}/%{name}/{*.md,LICENSE,.gitignore,init-scripts,contrib}
+rm -fr %{buildroot}%{_datadir}/%{name}/{README.md,API.md,LICENSE,.gitignore,init-scripts,contrib}
 
 %pre
 getent group %{group} >/dev/null || groupadd -r %{group}
