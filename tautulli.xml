@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>tautulli</short>
+  <description>Tautulli Plex monitoring system</description>
+  <port protocol="tcp" port="8181"/>
+</service>
