@@ -19,10 +19,11 @@ BuildRequires:  firewalld-filesystem
 BuildRequires:  systemd
 BuildRequires:  tar
 
-Requires:       python2
-Requires:       python2-pycryptodomex
 Requires:       firewalld-filesystem
 Requires(post): firewalld-filesystem
+Requires:       python2
+Requires:       python2-pycryptodomex
+Requires(pre):  shadow-utils
 
 %description
 A python based web application for monitoring, analytics and notifications for
