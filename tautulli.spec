@@ -75,7 +75,7 @@ exit 0
 %doc README.md CHANGELOG.md API.md
 %attr(750,%{user},%{group}) %{_sharedstatedir}/%{name}
 %attr(750,%{user},%{group}) %{_sysconfdir}/%{name}
-%ghost %{_sysconfdir}/%{name}/config.ini
+%ghost %config %{_sysconfdir}/%{name}/config.ini
 %{_datadir}/%{name}
 %{_prefix}/lib/firewalld/services/%{name}.xml
 %{_unitdir}/%{name}.service
