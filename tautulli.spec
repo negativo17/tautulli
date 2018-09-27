@@ -1,4 +1,3 @@
-%global gittag0 %{version}-beta
 %global user %{name}
 %global group %{name}
 %global __python %{__python2}
@@ -11,7 +10,7 @@ License:        GPLv3
 URL:            http://tautulli.com
 BuildArch:      noarch
 
-Source0:        https://github.com/Tautulli/Tautulli/archive/v%{gittag0}.tar.gz#/%{name}-%{gittag0}.tar.gz
+Source0:        https://github.com/Tautulli/Tautulli/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 Source10:       %{name}.service
 Source11:       %{name}.xml
 
@@ -30,7 +29,7 @@ A python based web application for monitoring, analytics and notifications for
 Plex Media Server.
 
 %prep
-%autosetup -n Tautulli-%{gittag0}
+%autosetup -n Tautulli-%{version}
 
 %install
 mkdir -p %{buildroot}%{_datadir}/%{name}
