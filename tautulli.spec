@@ -2,15 +2,17 @@
 %global group %{name}
 %global __python %{__python2}
 
+%global beta 1
+
 Name:           tautulli
-Version:        2.1.22
+Version:        2.1.23
 Release:        1%{?dist}
 Summary:        A Python based monitoring and tracking tool for Plex Media Server
 License:        GPLv3
 URL:            http://tautulli.com
 BuildArch:      noarch
 
-Source0:        https://github.com/Tautulli/Tautulli/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/Tautulli/Tautulli/archive/v%{version}%{?beta:-beta}.tar.gz#/%{name}-%{version}%{?beta:-beta}.tar.gz
 Source10:       %{name}.service
 Source11:       %{name}.xml
 
@@ -29,7 +31,7 @@ A python based web application for monitoring, analytics and notifications for
 Plex Media Server.
 
 %prep
-%autosetup -n Tautulli-%{version}
+%autosetup -n Tautulli-%{version}%{?beta:-beta}
 
 %install
 mkdir -p %{buildroot}%{_datadir}/%{name}
@@ -80,6 +82,9 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
+* Sun Oct 28 2018 Simone Caronni <negativo17@gmail.com> - 2.1.23-1
+- Update to 2.1.23.
+
 * Wed Oct 10 2018 Simone Caronni <negativo17@gmail.com> - 2.1.22-1
 - Update to 2.1.22.
 
