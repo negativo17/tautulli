@@ -1,0 +1,13 @@
+diff -Naur Tautulli-2.1.44.old/Tautulli.py Tautulli-2.1.44/Tautulli.py
+--- Tautulli-2.1.44.old/Tautulli.py	2020-02-21 16:33:31.782657142 +0100
++++ Tautulli-2.1.44/Tautulli.py	2020-02-21 16:33:59.034057399 +0100
+@@ -1,8 +1,4 @@
+-#!/bin/sh
+-''''which python    >/dev/null 2>&1 && exec python    "$0" "$@" # '''
+-''''which python2   >/dev/null 2>&1 && exec python2   "$0" "$@" # '''
+-''''which python2.7 >/dev/null 2>&1 && exec python2.7 "$0" "$@" # '''
+-''''exec echo "Error: Python not found!" # '''
++#!/usr/bin/python
+ 
+ # -*- coding: utf-8 -*-
+ 
