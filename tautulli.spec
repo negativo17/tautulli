@@ -1,11 +1,9 @@
 %global user %{name}
 %global group %{name}
-%global __python %{__python2}
-
 #global beta 1
 
 Name:           tautulli
-Version:        2.2.4
+Version:        2.5.3
 Release:        1%{?dist}
 Summary:        A Python based monitoring and tracking tool for Plex Media Server
 License:        GPLv3
@@ -15,7 +13,6 @@ BuildArch:      noarch
 Source0:        https://github.com/Tautulli/Tautulli/archive/v%{version}%{?beta:-beta}.tar.gz#/%{name}-%{version}%{?beta:-beta}.tar.gz
 Source10:       %{name}.service
 Source11:       %{name}.xml
-Patch0:         %{name}-python.patch
 
 BuildRequires:  firewalld-filesystem
 BuildRequires:  systemd
@@ -23,8 +20,8 @@ BuildRequires:  tar
 
 Requires:       firewalld-filesystem
 Requires(post): firewalld-filesystem
-Requires:       python2
-Requires:       python2-pycryptodomex
+Requires:       python3
+Requires:       python3-pycryptodomex
 Requires(pre):  shadow-utils
 
 %description
@@ -41,20 +38,19 @@ mkdir -p %{buildroot}%{_unitdir}
 mkdir -p %{buildroot}%{_sharedstatedir}/%{name}
 mkdir -p %{buildroot}%{_sysconfdir}/%{name}
 
-cp -fr * %{buildroot}%{_datadir}/%{name}
+# Changelog is displayed in the GUI:
+cp -fr data lib plexpy PlexPy.py pylintrc Tautulli.py CHANGELOG.md %{buildroot}%{_datadir}/%{name}
 
 install -m 0644 -p %{SOURCE10} %{buildroot}%{_unitdir}/%{name}.service
 install -m 0644 -p %{SOURCE11} %{buildroot}%{_prefix}/lib/firewalld/services/%{name}.xml
 
-# Always invoke Python 2
 find %{buildroot} -name "*.py" -exec sed -i \
-    -e 's|/usr/bin/env python|/usr/bin/env python2|g' \
-    -e 's|/usr/bin/python|/usr/bin/env python2|g' {} \;
-rm -f %{buildroot}%{_datadir}/%{name}/lib/apscheduler/executors/base_py3.py
+    -e 's|/usr/bin/env python.*|/usr/bin/python3|g' \
+    -e 's|/usr/bin/python.*|/usr/bin/python3|g' {} \;
+#rm -f %{buildroot}%{_datadir}/%{name}/lib/apscheduler/executors/base_py3.py
 
 find %{buildroot} \( -name "*.js" -o -name "*.css" \) -exec chmod 644 {} \;
-
-rm -fr %{buildroot}%{_datadir}/%{name}/{README.md,API.md,LICENSE,.gitignore,init-scripts,contrib}
+#chmod 644 %{buildroot}%{_datadir}/%{name}/ciccio
 
 %pre
 getent group %{group} >/dev/null || groupadd -r %{group}
@@ -75,7 +71,7 @@ exit 0
 
 %files
 %license LICENSE
-%doc README.md CHANGELOG.md API.md
+%doc API.md README.md
 %attr(750,%{user},%{group}) %{_sharedstatedir}/%{name}
 %attr(750,%{user},%{group}) %{_sysconfdir}/%{name}
 %ghost %config %{_sysconfdir}/%{name}/config.ini
@@ -84,6 +80,9 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
+* Tue Jul 14 2020 Simone Caronni <negativo17@gmail.com> - 2.5.3-1
+- Update to 2.5.3.
+
 * Fri May 22 2020 Simone Caronni <negativo17@gmail.com> - 2.2.4-1
 - Update to 2.2.4.
 
