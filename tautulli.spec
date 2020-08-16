@@ -3,7 +3,7 @@
 #global beta 1
 
 Name:           tautulli
-Version:        2.5.3
+Version:        2.5.4
 Release:        1%{?dist}
 Summary:        A Python based monitoring and tracking tool for Plex Media Server
 License:        GPLv3
@@ -47,10 +47,8 @@ install -m 0644 -p %{SOURCE11} %{buildroot}%{_prefix}/lib/firewalld/services/%{n
 find %{buildroot} -name "*.py" -exec sed -i \
     -e 's|/usr/bin/env python.*|/usr/bin/python3|g' \
     -e 's|/usr/bin/python.*|/usr/bin/python3|g' {} \;
-#rm -f %{buildroot}%{_datadir}/%{name}/lib/apscheduler/executors/base_py3.py
 
 find %{buildroot} \( -name "*.js" -o -name "*.css" \) -exec chmod 644 {} \;
-#chmod 644 %{buildroot}%{_datadir}/%{name}/ciccio
 
 %pre
 getent group %{group} >/dev/null || groupadd -r %{group}
@@ -80,6 +78,9 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
+* Sun Aug 16 2020 Simone Caronni <negativo17@gmail.com> - 2.5.4-1
+- Update to 2.5.4.
+
 * Tue Jul 14 2020 Simone Caronni <negativo17@gmail.com> - 2.5.3-1
 - Update to 2.5.3.
 
