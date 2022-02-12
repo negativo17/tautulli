@@ -3,7 +3,7 @@
 #global beta 1
 
 Name:           tautulli
-Version:        2.8.1
+Version:        2.9.3
 Release:        1%{?dist}
 Summary:        A Python based monitoring and tracking tool for Plex Media Server
 License:        GPLv3
@@ -78,6 +78,9 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
+* Sat Feb 12 2022 Simone Caronni <negativo17@gmail.com> - 2.9.3-1
+- Update to 2.9.3.
+
 * Thu Jan 13 2022 Simone Caronni <negativo17@gmail.com> - 2.8.1-1
 - Update to 2.8.1.
 
