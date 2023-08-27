@@ -3,7 +3,7 @@
 #global beta 1
 
 Name:           tautulli
-Version:        2.12.5
+Version:        2.13.1
 Release:        1%{?dist}
 Summary:        A Python based monitoring and tracking tool for Plex Media Server
 License:        GPLv3
@@ -20,7 +20,7 @@ BuildRequires:  tar
 
 Requires:       firewalld-filesystem
 Requires(post): firewalld-filesystem
-Requires:       python3
+Requires:       python3 >= 3.8
 Requires:       python3-pycryptodomex
 Requires(pre):  shadow-utils
 
@@ -78,6 +78,10 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
+* Sun Aug 27 2023 Simone Caronni <negativo17@gmail.com> - 2.13.1-1
+- Update to 2.13.1.
+- Trim changelog.
+
 * Tue Jul 18 2023 Simone Caronni <negativo17@gmail.com> - 2.12.5-1
 - Update to 2.12.5.
 
@@ -122,117 +126,3 @@ exit 0
 
 * Thu Jan 13 2022 Simone Caronni <negativo17@gmail.com> - 2.8.1-1
 - Update to 2.8.1.
-
-* Thu Dec 16 2021 Simone Caronni <negativo17@gmail.com> - 2.8.0-1
-- Update to 2.8.0.
-
-* Fri Oct 15 2021 Simone Caronni <negativo17@gmail.com> - 2.7.7-1
-- Update to 2.7.7.
-
-* Wed Sep 01 2021 Simone Caronni <negativo17@gmail.com> - 2.7.6-1
-- Update to 2.7.6.
-
-* Tue Jul 20 2021 Simone Caronni <negativo17@gmail.com> - 2.7.5-1
-- Update to 2.7.5.
-
-* Sun Jun 20 2021 Simone Caronni <negativo17@gmail.com> - 2.7.4-1
-- Update to 2.7.4.
-
-* Sun May 23 2021 Simone Caronni <negativo17@gmail.com> - 2.7.3-1
-- Update to 2.7.3.
-
-* Wed May 05 2021 Simone Caronni <negativo17@gmail.com> - 2.7.2-1
-- Update to 2.7.2.
-
-* Wed Apr 21 2021 Simone Caronni <negativo17@gmail.com> - 2.7.0-1
-- Update to 2.7.0.
-
-* Thu Feb 11 2021 Simone Caronni <negativo17@gmail.com> - 2.6.6-1
-- Update to 2.6.6.
-
-* Thu Jan 21 2021 Simone Caronni <negativo17@gmail.com> - 2.6.5-1
-- Update to 2.6.5.
-
-* Sat Dec 26 2020 Simone Caronni <negativo17@gmail.com> - 2.6.4-1
-- Update to 2.6.4.
-
-* Tue Dec 08 2020 Simone Caronni <negativo17@gmail.com> - 2.6.2-1
-- Update to 2.6.2.
-
-* Thu Nov 05 2020 Simone Caronni <negativo17@gmail.com> - 2.6.1-1
-- Update to 2.6.1.
-
-* Thu Oct 29 2020 Simone Caronni <negativo17@gmail.com> - 2.6.0-1
-- Update to 2.6.0-beta.
-
-* Tue Oct 06 2020 Simone Caronni <negativo17@gmail.com> - 2.5.6-1
-- Update to 2.5.6.
-
-* Sun Aug 16 2020 Simone Caronni <negativo17@gmail.com> - 2.5.4-1
-- Update to 2.5.4.
-
-* Tue Jul 14 2020 Simone Caronni <negativo17@gmail.com> - 2.5.3-1
-- Update to 2.5.3.
-
-* Fri May 22 2020 Simone Caronni <negativo17@gmail.com> - 2.2.4-1
-- Update to 2.2.4.
-
-* Wed Apr 01 2020 Simone Caronni <negativo17@gmail.com> - 2.2.1-1
-- Update to 2.2.1.
-
-* Fri Feb 21 2020 Simone Caronni <negativo17@gmail.com> - 2.1.44-2
-- Enforce Python 2 in main script.
-
-* Thu Feb 06 2020 Simone Caronni <negativo17@gmail.com> - 2.1.44-1
-- Update to 2.1.44.
-
-* Sat Dec 21 2019 Simone Caronni <negativo17@gmail.com> - 2.1.39-1
-- Update to 2.1.39.
-
-* Sun Dec 01 2019 Simone Caronni <negativo17@gmail.com> - 2.1.38-1
-- Update to 2.1.38.
-
-* Wed Oct 02 2019 Simone Caronni <negativo17@gmail.com> - 2.1.35-1
-- Update to 2.1.35-beta.
-
-* Sun Sep 08 2019 Simone Caronni <negativo17@gmail.com> - 2.1.34-1
-- Update to 2.1.34.
-
-* Tue Jul 09 2019 Simone Caronni <negativo17@gmail.com> - 2.1.32-1
-- Update to 2.1.32.
-
-* Sun Jun 16 2019 Simone Caronni <negativo17@gmail.com> - 2.1.31-1
-- Update to 2.1.31-beta.
-
-* Mon May 27 2019 Simone Caronni <negativo17@gmail.com> - 2.1.30-1
-- Update to 2.1.30-beta.
-
-* Tue Apr 30 2019 Simone Caronni <negativo17@gmail.com> - 2.1.29-1
-- Update to 2.1.29-beta.
-
-* Mon Apr 01 2019 Simone Caronni <negativo17@gmail.com> - 2.1.28-1
-- Update to 2.1.28.
-
-* Sun Mar 10 2019 Simone Caronni <negativo17@gmail.com> - 2.1.27-1
-- Update to 2.1.27-beta.
-
-* Sun Dec 09 2018 Simone Caronni <negativo17@gmail.com> - 2.1.26-1
-- Update to 2.1.26.
-
-* Sun Nov 25 2018 Simone Caronni <negativo17@gmail.com> - 2.1.25-1
-- Update to 2.1.25.
-
-* Sun Oct 28 2018 Simone Caronni <negativo17@gmail.com> - 2.1.23-1
-- Update to 2.1.23.
-
-* Wed Oct 10 2018 Simone Caronni <negativo17@gmail.com> - 2.1.22-1
-- Update to 2.1.22.
-
-* Thu Sep 27 2018 Simone Caronni <negativo17@gmail.com> - 2.1.21-1
-- Update to 2.1.21.
-
-* Tue Aug 21 2018 Simone Caronni <negativo17@gmail.com> - 2.1.19-1
-- Update to 2.1.19.
-
-* Sat Jul 21 2018 Simone Caronni <negativo17@gmail.com> - 2.1.16-1
-- First build.
