@@ -3,7 +3,7 @@
 #global beta 1
 
 Name:           tautulli
-Version:        2.15.1
+Version:        2.15.2
 Release:        1%{?dist}
 Summary:        A Python based monitoring and tracking tool for Plex Media Server
 License:        GPLv3
@@ -78,6 +78,10 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
+* Sun Apr 13 2025 Simone Caronni <negativo17@gmail.com> - 2.15.2-1
+- Update to 2.15.2.
+- Trim changelog.
+
 * Fri Mar 14 2025 Simone Caronni <negativo17@gmail.com> - 2.15.1-1
 - Update to 2.15.1.
 
@@ -98,58 +102,3 @@ exit 0
 
 * Tue May 21 2024 Simone Caronni <negativo17@gmail.com> - 2.14.2-1
 - Update to 2.14.2.
-
-* Tue Dec 12 2023 Simone Caronni <negativo17@gmail.com> - 2.13.4-1
-- Update to 2.13.4.
-
-* Tue Oct 31 2023 Simone Caronni <negativo17@gmail.com> - 2.13.2-1
-- Update to 2.13.2.
-
-* Sun Aug 27 2023 Simone Caronni <negativo17@gmail.com> - 2.13.1-1
-- Update to 2.13.1.
-- Trim changelog.
-
-* Tue Jul 18 2023 Simone Caronni <negativo17@gmail.com> - 2.12.5-1
-- Update to 2.12.5.
-
-* Sat May 27 2023 Simone Caronni <negativo17@gmail.com> - 2.12.4-1
-- Update to 2.12.4.
-
-* Thu Apr 27 2023 Simone Caronni <negativo17@gmail.com> - 2.12.3-1
-- Update to 2.12.3.
-
-* Sun Mar 26 2023 Simone Caronni <negativo17@gmail.com> - 2.12.2-1
-- Update to 2.12.2.
-
-* Fri Dec 23 2022 Simone Caronni <negativo17@gmail.com> - 2.11.1-1
-- Update to 2.11.1.
-
-* Thu Nov 10 2022 Simone Caronni <negativo17@gmail.com> - 2.10.5-1
-- Update to 2.10.5.
-
-* Wed Sep 21 2022 Simone Caronni <negativo17@gmail.com> - 2.10.4-1
-- Update to 2.10.4.
-
-* Wed Aug 10 2022 Simone Caronni <negativo17@gmail.com> - 2.10.3-1
-- Update to 2.10.3.
-
-* Tue Jul 05 2022 Simone Caronni <negativo17@gmail.com> - 2.10.2-1
-- Update to 2.10.2.
-
-* Wed Jun 01 2022 Simone Caronni <negativo17@gmail.com> - 2.10.1-1
-- Update to 2.10.1.
-
-* Tue May 24 2022 Simone Caronni <negativo17@gmail.com> - 2.10.0-1
-- Update to 2.10.0.
-
-* Sun Apr 17 2022 Simone Caronni <negativo17@gmail.com> - 2.9.7-1
-- Update to 2.9.7.
-
-* Wed Feb 16 2022 Simone Caronni <negativo17@gmail.com> - 2.9.4-1
-- Update to 2.9.4.
-
-* Sat Feb 12 2022 Simone Caronni <negativo17@gmail.com> - 2.9.3-1
-- Update to 2.9.3.
-
-* Thu Jan 13 2022 Simone Caronni <negativo17@gmail.com> - 2.8.1-1
-- Update to 2.8.1.
