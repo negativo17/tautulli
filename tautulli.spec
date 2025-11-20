@@ -4,7 +4,7 @@
 
 Name:           tautulli
 Version:        2.16.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A Python based monitoring and tracking tool for Plex Media Server
 License:        GPLv3
 URL:            http://tautulli.com
@@ -13,6 +13,7 @@ BuildArch:      noarch
 Source0:        https://github.com/Tautulli/Tautulli/archive/v%{version}%{?beta:-beta}.tar.gz#/%{name}-%{version}%{?beta:-beta}.tar.gz
 Source10:       %{name}.service
 Source11:       %{name}.xml
+Source12:       %{name}.sysusers.conf
 
 BuildRequires:  firewalld-filesystem
 BuildRequires:  systemd
@@ -22,7 +23,6 @@ Requires:       firewalld-filesystem
 Requires(post): firewalld-filesystem
 Requires:       python3 >= 3.8
 Requires:       python3-pycryptodomex
-Requires(pre):  shadow-utils
 
 %description
 A python based web application for monitoring, analytics and notifications for
@@ -33,29 +33,21 @@ Plex Media Server.
 
 %install
 mkdir -p %{buildroot}%{_datadir}/%{name}
-mkdir -p %{buildroot}%{_prefix}/lib/firewalld/services/
-mkdir -p %{buildroot}%{_unitdir}
 mkdir -p %{buildroot}%{_sharedstatedir}/%{name}
 mkdir -p %{buildroot}%{_sysconfdir}/%{name}
 
 # Changelog is displayed in the GUI:
 cp -fr data lib plexpy PlexPy.py pylintrc Tautulli.py CHANGELOG.md %{buildroot}%{_datadir}/%{name}
 
-install -m 0644 -p %{SOURCE10} %{buildroot}%{_unitdir}/%{name}.service
-install -m 0644 -p %{SOURCE11} %{buildroot}%{_prefix}/lib/firewalld/services/%{name}.xml
+install -D -m 0644 -p %{SOURCE10} %{buildroot}%{_unitdir}/%{name}.service
+install -D -m 0644 -p %{SOURCE11} %{buildroot}%{_prefix}/lib/firewalld/services/%{name}.xml
+install -D -m 0644 -p %{SOURCE12} %{buildroot}%{_sysusersdir}/%{name}.conf
 
 find %{buildroot} -name "*.py" -exec sed -i \
     -e 's|/usr/bin/env python.*|/usr/bin/python3|g' \
     -e 's|/usr/bin/python.*|/usr/bin/python3|g' {} \;
 
 find %{buildroot} \( -name "*.js" -o -name "*.css" \) -exec chmod 644 {} \;
-
-%pre
-getent group %{group} >/dev/null || groupadd -r %{group}
-getent passwd %{user} >/dev/null || \
-    useradd -r -g %{group} -d %{_sharedstatedir}/%{name} -s /sbin/nologin \
-    -c "%{name}" %{user}
-exit 0
 
 %post
 %systemd_post %{name}.service
@@ -75,9 +67,13 @@ exit 0
 %ghost %config %{_sysconfdir}/%{name}/config.ini
 %{_datadir}/%{name}
 %{_prefix}/lib/firewalld/services/%{name}.xml
+%{_sysusersdir}/%{name}.conf
 %{_unitdir}/%{name}.service
 
 %changelog
+* Thu Nov 20 2025 Simone Caronni <negativo17@gmail.com> - 2.16.0-2
+- Switch to sysusers.d.
+
 * Tue Sep 09 2025 Simone Caronni <negativo17@gmail.com> - 2.16.0-1
 - Update to 2.16.0.
 
