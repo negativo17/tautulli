@@ -4,7 +4,7 @@
 
 Name:           tautulli
 Version:        2.17.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A Python based monitoring and tracking tool for Plex Media Server
 License:        GPLv3
 URL:            http://tautulli.com
@@ -75,6 +75,9 @@ find %{buildroot} \( -name "*.js" -o -name "*.css" \) -exec chmod 644 {} \;
 %{_unitdir}/%{name}.service
 
 %changelog
+* Wed Jun 17 2026 Simone Caronni <negativo17@gmail.com> - 2.17.1-2
+- Update to 2.17.2.
+
 * Wed May 06 2026 Simone Caronni <negativo17@gmail.com> - 2.17.1-1
 - Update to 2.17.1.
 
