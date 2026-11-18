@@ -3,7 +3,7 @@
 #global beta 1
 
 Name:           tautulli
-Version:        2.18.2
+Version:        2.19.1
 Release:        1%{?dist}
 Summary:        A Python based monitoring and tracking tool for Plex Media Server
 License:        GPLv3
@@ -70,6 +70,9 @@ find %{buildroot} \( -name "*.js" -o -name "*.css" \) -exec chmod 644 {} \;
 %{_unitdir}/%{name}.service
 
 %changelog
+* Wed Nov 18 2026 Simone Caronni <negativo17@gmail.com> - 2.19.1-1
+- Update to 2.19.1.
+
 * Tue Sep 29 2026 Simone Caronni <negativo17@gmail.com> - 2.18.2-1
 - Update to 2.18.2.
 
@@ -87,37 +90,3 @@ find %{buildroot} \( -name "*.js" -o -name "*.css" \) -exec chmod 644 {} \;
 
 * Mon Feb 16 2026 Simone Caronni <negativo17@gmail.com> - 2.16.1-1
 - Update to 2.16.1.
-
-* Thu Nov 20 2025 Simone Caronni <negativo17@gmail.com> - 2.16.0-2
-- Switch to sysusers.d.
-
-* Tue Sep 09 2025 Simone Caronni <negativo17@gmail.com> - 2.16.0-1
-- Update to 2.16.0.
-
-* Fri Aug 08 2025 Simone Caronni <negativo17@gmail.com> - 2.15.3-1
-- Update to 2.15.3.
-
-* Sun Apr 13 2025 Simone Caronni <negativo17@gmail.com> - 2.15.2-1
-- Update to 2.15.2.
-- Trim changelog.
-
-* Fri Mar 14 2025 Simone Caronni <negativo17@gmail.com> - 2.15.1-1
-- Update to 2.15.1.
-
-* Mon Nov 25 2024 Simone Caronni <negativo17@gmail.com> - 2.15.0-1
-- Update to 2.15.0.
-
-* Sun Oct 20 2024 Simone Caronni <negativo17@gmail.com> - 2.14.6-1
-- Update to 2.14.6.
-
-* Tue Sep 24 2024 Simone Caronni <negativo17@gmail.com> - 2.14.5-1
-- Update to 2.14.5.
-
-* Sun Aug 18 2024 Simone Caronni <negativo17@gmail.com> - 2.14.4-1
-- Update to 2.14.4.
-
-* Mon Jun 24 2024 Simone Caronni <negativo17@gmail.com> - 2.14.3-1
-- Update to 2.14.3.
-
-* Tue May 21 2024 Simone Caronni <negativo17@gmail.com> - 2.14.2-1
-- Update to 2.14.2.
